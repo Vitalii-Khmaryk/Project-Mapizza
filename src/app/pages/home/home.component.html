@@ -1,0 +1,238 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="wrapper-slider">
+      <img
+        src="https://mapizza.com.ua/wp-content/uploads/2022/03/banner-decor.svg"
+        class="img-veget"
+        alt=""
+      />
+      <div class="info-slider">
+        <div class="padding-left typjs">
+          <ngx-typed-js
+            [strings]="[
+              'Акція 2+1.Замовляй 3 піци та отримуй одну з них безкоштовно!акція діє з понеділка по четвер, на доставку',
+              '-15% на самовивіз.Забирай замовлення самостійно з наших піцерій та отримуй знижку 15%!',
+              'Середній час доставки 29 хв!У жовту зону до 59 хв',
+              'Акція 3+1!Замовляй 3 піци та отримай 4-ту в подарунок!акція діє з п’ятниці по неділю, на доставку'
+            ]"
+            [loop]="true"
+            [shuffle]="true"
+            [typeSpeed]="20"
+            [startDelay]="0"
+            [backSpeed]="30"
+            [backDelay]="2000"
+          >
+            <span class="typing"></span>
+          </ngx-typed-js>
+        </div>
+        <div class="padding-left d-flex">
+          <a href="#title"
+            ><button class="btn-zamov">
+              ЗАМОВИТИ<i class="bx bx-right-arrow-circle"></i></button
+          ></a>
+        </div>
+      </div>
+      <div style="width: 50%">
+        <owl-carousel-o [options]="customOptions">
+          <ng-template carouselSlide>
+            <img src="../../../assets/images/3.png" alt="" />
+          </ng-template>
+          <ng-template carouselSlide>
+            <img src="../../../assets/images/6_2-1.png" alt="" />
+          </ng-template>
+          <ng-template carouselSlide>
+            <img src="../../../assets/images/8-1.png" alt="" />
+          </ng-template>
+          <ng-template carouselSlide>
+            <img src="../../../assets/images/ma_banner.png" alt="" />
+          </ng-template>
+        </owl-carousel-o>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="sector-pizza">
+  <div class="container">
+    <h2 class="title-pizza" id="title">
+      <img
+        src="https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/title-decor.svg"
+        class="title-pizza-dekor"
+        alt=""
+      />
+      Піца Львів
+    </h2>
+    <div class="row-button">
+      <button (click)="filterValue = ''">Всі</button>
+      <button (click)="filterValue = 'Гостра'">Гостра</button>
+      <button (click)="filterValue = 'M\'ясо'">М'ясо</button>
+      <button (click)="filterValue = 'Овочі'">Овочі</button>
+      <button (click)="filterValue = 'Морепродукти'">Морепродукти</button>
+      <label for="fil" class="label">
+        <input
+          type="text"
+          id="fil"
+          class="filtInp"
+          [(ngModel)]="filterValue"
+          placeholder="*Введіть бажану піцу / продукт"
+        /><span (click)="filterValue = ''" class="cross">✖</span>
+      </label>
+    </div>
+    <div class="row-product-card">
+      <div
+        class="card"
+        *ngFor="let data of productsArray | filter : filterValue"
+      >
+        <div class="like-button">
+          <div></div>
+          <button class="like" (click)="addFavorite(data)">
+            <i class="bx bx-heart"></i>
+          </button>
+        </div>
+        <img
+          [src]="data.imagePath"
+          [routerLink]="['/product/' + data.category.path, data.id]"
+          alt=""
+        />
+        <div class="name-product">
+          <h4 [routerLink]="['/product/' + data.category.path, data.id]">
+            {{ data.name }}
+          </h4>
+        </div>
+        <div class="ingrid">
+          <p>
+            {{ data.ingredients | slice : 0 : 100 }}
+            <span *ngIf="data.ingredients.length > 100">...</span>
+          </p>
+        </div>
+        <div class="div-price">
+          <p>
+            <b>{{ data.price * data.count }} грн</b>/{{ data.weight }} г
+          </p>
+        </div>
+        <div class="panel-control">
+          <div class="input">
+            <button (click)="productCount(data, false)" class="decr">-</button>
+            <input
+              type="text"
+              class="inpValue"
+              disabled
+              style="background-color: white"
+              [value]="data.count"
+            />
+            <button (click)="productCount(data, true)" class="incr">+</button>
+          </div>
+          <div class="btn">
+            <button (click)="addToBasket(data)" class="red-btn-zamov">
+              ЗАМОВИТИ
+              <i class="bx bx-shopping-bag" style="font-size: 16px"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sector-inform">
+  <div class="container">
+    <div class="box">
+      <img
+        src="https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/decor-img-6.svg"
+        class="dekor-box"
+        alt=""
+      />
+      <div class="mini-box">
+        <img
+          src="https://mapizza.com.ua/wp-content/uploads/2021/09/benefits-img-1.svg"
+          alt=""
+        />
+        <h3>Італійські продукти найвищої якості</h3>
+        <p>МА імпортує продукти топових європейських брендів</p>
+      </div>
+      <div class="mini-box">
+        <img
+          src="https://mapizza.com.ua/wp-content/uploads/2021/09/benefits-img-2.svg"
+          alt=""
+        />
+        <h3>Неймовірний смак та хрустка скоринка</h3>
+        <p>МА готує тісто для піци лише на італійському борошні Caputo</p>
+      </div>
+      <div class="mini-box">
+        <img
+          src="	https://mapizza.com.ua/wp-content/uploads/2021/09/benefits-img-3.svg"
+          alt=""
+        />
+        <h3>Професійні кухарі та піцейоли майстри своєї справи</h3>
+        <p>
+          У МА працюють найкращі! Вболіваємо за розвиток кожного працівника!
+        </p>
+      </div>
+      <div class="mini-box">
+        <img
+          src="https://mapizza.com.ua/wp-content/uploads/2021/09/benefits-img-4.svg"
+          alt=""
+        />
+        <h3>Безкоштовна та швидка доставка у будь-який куточок Львова</h3>
+        <p>Середній час доставки у зеленій зоні – 29 хв.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sector-inform">
+  <div class="container">
+    <div class="about-container">
+      <div class="text-about">
+        <h1>Трішки про нас</h1>
+        <p class="text-grey">
+          Ми не італійці, в нашій команді немає іменитих шефів чи розкручених
+          учасників кулінарних шоу. Проте, ми обожнюємо гастрономічні традиції
+          Італії та експерименти на кухні, а ще ми з великою повагою ставимося
+          до їжі, яку готуємо нашим клієнтам.
+        </p>
+        <br />
+        <p>
+          Наша мета – дати можливість усім і кожному закохатися у справжню
+          італійську піцу. МА готує піцу з якісних імпортних інгредієнтів на
+          італійському борошні Caputo. Тоненьке тісто, хрумкі бортики, багато
+          начинки – «кусь» і Ви в Італії!
+        </p>
+        <button class="btn-zamov w-20" [routerLink]="['/about']">
+          ДІЗНАТИСЬ БІЛЬШЕ <i class="bx bx-right-arrow-circle"></i>
+        </button>
+      </div>
+      <div class="image">
+        <img
+          src="https://mapizza.com.ua/wp-content/uploads/2022/01/pizza.jpg"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sector-inform">
+  <div class="container">
+    <div class="about-container">
+      <div class="image1">
+        <img
+          src="https://mapizza.com.ua/wp-content/uploads/2021/12/1-4-1.jpg"
+          alt=""
+        />
+      </div>
+      <div class="text-about1">
+        <h1>Підпишись на наш Інстаграм</h1>
+        <p class="text-grey">
+          Серфите в Інстаграмі? Ми теж! Ма розуміє, що створити кращий контент,
+          ніж відосики з котиками та песиками – складно, втім ми стараємося, щоб
+          вам було цікаво. Підписуйтеся на нашу сторінку, щоб бачити, як справи
+          у МА та які смачні пропозиції вона для вас підготувала.
+        </p>
+        <button class="btn-zamov w-20" [routerLink]="['/about']">
+          @MA PIZZA <i class="bx bx-right-arrow-circle"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

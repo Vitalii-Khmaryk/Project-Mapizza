@@ -1,0 +1,15 @@
+@font-face {
+    font-family: "Mont Blanc";
+    font-style: normal;
+    font-weight: normal;
+    src: local("MontBlanc"), url("../assets/fonts/MontBlancTrialThin.ttf") format("ttf");
+  }
+  
+  @font-face {
+    font-family: "Mont Blanc Bold";
+    font-style: normal;
+    font-weight: normal;
+    src: local("MontBlanc Bold"),
+      url("../assets/fonts/MontBlancTrialExtraBold.ttf") format("ttf");
+  }
+

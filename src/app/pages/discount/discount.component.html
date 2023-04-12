@@ -1,0 +1,15 @@
+<div class="wrapper">
+    <div class="container">
+        <h1><span class="title-dekor">Акції</span></h1>
+        <div class="block-discount" *ngFor="let data of discounts">
+           <div class="block-img" [routerLink]="['/discounts/'+data.id]">
+            <img [src]="data.imagePath" alt="...">
+           </div>
+            <div class="inform">
+             <div class="name"><h2 class="h2-name" [routerLink]="['/discounts/'+data.id]">{{data.name}}</h2></div>
+                <div class="desc"> {{data.description | slice:0:210}}  <span *ngIf="data.description.length > 210">...</span> </div>
+              <div class="block-btn"><button class="btn" [routerLink]="['/discounts/'+data.id]">ДІЗНАТИСЬ БІЛЬШЕ<i class='bx bx-right-arrow-circle'></i></button></div>
+            </div>
+        </div>
+    </div>
+</div>

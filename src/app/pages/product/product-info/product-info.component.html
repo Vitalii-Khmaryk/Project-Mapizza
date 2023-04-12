@@ -1,0 +1,38 @@
+<div class="wrapper">
+<div class="product-cards">
+   <div>
+    <ul >
+        <li [routerLink]="['/']">Головна</li>
+        <li [routerLink]="['/product/'+currentProduct.category.path]">{{currentProduct.category.name}}</li>
+        <li>{{currentProduct.name}}</li>
+    </ul>
+   </div>
+   <div class="wrapper-card">
+    <div class="card" >
+    <div class="image">
+        <a [href]="currentProduct.imagePath"><img [src]="currentProduct.imagePath"></a>
+    </div>
+        <div class="inform">
+            <p class="price"><b>{{currentProduct.price * currentProduct.count}} грн / </b>{{currentProduct.weight}} г</p>
+        <p class="name" ><b>{{currentProduct.name}}</b></p>
+        <br>
+        <div class="info">
+            <p class="ingredients"> {{currentProduct.ingredients}}</p>
+        </div>
+        <div class="ordering">
+          <div class="panel-control" style="display: flex;align-items: center;">
+            <span class="quantity-text">Кількість:</span>
+            <div class="select-quantity">
+                <button (click)="productCount(currentProduct,false)" class="minus">-</button>
+                <input type="text" name="num" disabled style="background-color: white;" class="count" [value]="currentProduct.count">
+                <button (click)="productCount(currentProduct,true)" class="plus">+</button>
+            </div>
+            </div>
+            <div><b>{{currentProduct.price * currentProduct.count}} грн</b></div>
+        </div>
+         <button class="order" (click)="addToBasket(currentProduct)"><b>ЗАМОВИТИ</b><i class='bx bx-shopping-bag' style="font-size: 18px;" ></i></button> 
+      </div>
+    </div>
+</div>
+</div>
+</div>

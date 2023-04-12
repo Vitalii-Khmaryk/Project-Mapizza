@@ -1,0 +1,240 @@
+@import '../../shared/styles/_variables.scss';
+.wrapper{
+    width: 100%;
+    margin-top: 160px;
+    font-family: 'Mont Blanc', sans-serif;
+}
+
+.container{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+.heading{
+    background-image: url(https://mapizza.com.ua/wp-content/uploads/2021/09/banner-img-2.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: white;
+    font-size: 40px;
+    font-weight: 600;
+}
+.box{
+    margin-top: 30px;
+    background-color: white;
+    position: relative;
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid gray;
+    box-shadow: 20px 20px 20px rgb(244, 233, 215);
+    padding: 10px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.dekor-box{
+    position: absolute;
+    top: -50%;
+    left: -11%;
+    z-index: -1;
+}
+.mini-box{
+    margin: 10px 10px;
+    width: 310px;
+    height: 90%;
+    p{
+        font-weight: 600;
+        color: $clr-grey;
+    }
+}
+.sector{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;   
+    padding: 20px 10px;
+}
+.sector2{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;   
+    padding: 20px 10px;
+}
+.text-content{
+    width: 47%;
+   padding: 20px 10px;
+}
+.text-content h1{
+    font-size: 30px;
+}
+.text-content p{
+    margin: 10px 5px;
+    font-size: 22px;
+    line-height: 1.5em;
+    color: $clr-grey;
+    font-weight: 400;
+}
+.image{
+    width: 47%;
+}
+.image img{
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.title-video{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.title-video-h1{
+    position: relative;
+    font-size: 40px;
+}
+.title-video-h1::before{
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: -50px;
+    width: 64px;
+    height: 54px;
+    background: url('https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/title-decor.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.video{
+    margin-top: 20px;
+}
+.iframe-video{
+    width:960px;
+ height:515px;
+}
+.text-video{
+    color: $clr-grey;
+    font-size: 20px;
+    width: 70%;
+    p{
+        margin-top: 20px;
+    }
+}
+.video-image{
+    border-radius: 15px;
+    height: auto;
+    width: 100%;
+    margin: 20px auto;
+}
+@media screen and (max-width:1271px) {
+.heading{
+    height: 300px;
+}
+}
+@media screen and (max-width:1025px) {
+    .heading{
+        height: 250px;
+    }
+}
+@media screen and (max-width:1010px) {
+    .title-video-h1{
+        font-size: 30px;
+    }
+    .text-video{
+        font-size: 19px;
+    }
+    .iframe-video{
+        width:760px;
+        height:415px;
+    }
+.sector{
+    flex-direction: column-reverse;
+    align-items: center;
+}
+.image,.text-content{
+    width: 90%;
+}
+.sector2{
+    flex-direction: column;
+    align-items: center;
+}
+}
+@media screen and (max-width:981px) {
+    .heading{
+        background-attachment: inherit;
+    }
+}
+@media screen and (max-width:860px) {
+    .text-content h1{
+        font-size: 26px;
+    }
+    .heading{
+    height: 180px;
+    }
+    .text-content p{
+        font-size: 18px;
+    }
+}
+@media screen and (max-width:775px) {
+    .title-video-h1{
+        font-size: 25px;
+    }
+    .text-video{
+        width: 100%;
+        font-size: 18px;
+    }
+    .iframe-video{
+        width:560px;
+        height:315px;
+    }
+}
+@media screen and (max-width:680px) {
+    .heading{
+    height: 130px;
+    }
+    .container{
+        width: 98%;
+    }
+}
+
+@media screen and (max-width:640px) {
+    .title-video-h1{
+        font-size: 22px;
+    }
+    .text-video{
+        width: 100%;
+        font-size: 15px;
+    }
+    .iframe-video{
+        width:460px;
+        height:215px;
+    }
+}
+@media screen and (max-width:510px) {
+.iframe-video{
+    width: 300px;
+    height: 200px;
+}
+.text-content p{
+    font-size: 15px;
+}
+}
+@media screen and (max-width:440px) {
+    .heading{
+    height: 100px;
+    font-size: 25px;
+    }
+}

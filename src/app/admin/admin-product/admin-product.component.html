@@ -1,0 +1,62 @@
+<div class="container">
+    <button class="create" (click)="addProduct()"><b>ДОДАТИ ТОВАР</b></button>
+    <form [formGroup]="productForm" class="add" *ngIf="addProductStatus" (ngSubmit)="saveNewProduct()">
+        <select name="select-category" formControlName="category">
+            <option [ngValue]="category" *ngFor="let category of adminCategories">{{category.name}}</option>
+        </select>
+        <div>
+            <input formControlName="name" name="name" class="name" type="text" placeholder="*Назва">
+            <input formControlName="path" name="path" class="path" type="text" placeholder="*Шлях">
+        </div>
+        <input formControlName="ingredients" name="ingredients" class="ingredients" type="text" placeholder="*Інгредієнти">
+        <div>
+            <input formControlName="weight" name="weight" class="weight" type="text" placeholder="*Вага">
+            <input formControlName="price" name="price" class="price" type="number" placeholder="*Ціна">
+        </div>
+        <div class="add-img">
+            <input name="file" id="file" type="file" (change)="upload($event)">
+            <label for="file"></label>
+            <div class="wrapper">
+                <div class="progress" [style.width.%]="uploadPercent"></div>
+              </div>
+        </div>
+        <div class="prev-image" *ngIf="isUploaded">
+            <img [src]="valueByControl('imagePath')">
+            <button type="button" class="delete-img" (click)="deleteImage()">Видалити</button>
+        </div>
+        <button [disabled]="productForm.invalid" type="submit"><b>ЗБЕРЕГТИ</b></button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Категорія</th>
+                <th>Назва</th>
+                <th>Інгредієнти</th>
+                <th>Вага</th>
+                <th>Ціна</th>
+                <th>Картинка</th>
+                <th>Дії</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of adminProducts">
+                <td>{{data.id}}</td>
+                <td>{{data.category.name}}</td>
+                <td>{{data.name}}</td>
+                <td>{{data.ingredients | slice:0:30}}
+                    <span *ngIf="data.ingredients.length > 30">...</span>
+                </td>
+                <td>{{data.weight}}</td>
+                <td>{{data.price}}</td>
+                <td class="image">
+                    <img [src]="data.imagePath">
+                </td>
+                <td class="actions">
+                    <p (click)="editProduct(data)" class="under">Редагувати</p>
+                    <p (click)="deleteProduct(data)" class="under">Видалити</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

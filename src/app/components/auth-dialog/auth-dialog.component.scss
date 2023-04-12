@@ -1,0 +1,160 @@
+@import "../../shared/styles/variables";
+
+$main-color: green;
+
+.submiter {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  width: 500px;
+  height: 50px;
+  border: 1px solid transparent;
+  background-color: $clr-secondary;
+  color: white;
+  border-radius: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: $transition;
+  &:hover {
+    background-color: $clr-primary;
+  }
+}
+
+.inp {
+  margin-top: 10px;
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  border: 1px solid rgb(233, 224, 224);
+  padding-left: 10px;
+  color: gray;
+  font-size: 18px;
+  outline: none;
+  &:focus {
+    border: 1px solid gray;
+  }
+}
+.text-regist {
+  display: flex;
+}
+.name {
+  width: 48%;
+  margin-top: 10px;
+  height: 50px;
+  border-radius: 8px;
+  border: 1px solid rgb(233, 224, 224);
+  padding-left: 10px;
+  color: gray;
+  font-size: 18px;
+  outline: none;
+  &:focus {
+    border: 1px solid gray;
+  }
+}
+.pass {
+  width: 48%;
+  margin-top: 10px;
+  height: 50px;
+  border-radius: 8px;
+  border: 1px solid rgb(233, 224, 224);
+  padding-left: 10px;
+  color: gray;
+  font-size: 18px;
+  outline: none;
+  &:focus {
+    border: 1px solid gray;
+  }
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  padding: 10px 10px;
+  background-color: white;
+  z-index: 81;
+  width: 100%;
+  font-family: "Mont Blanc", sans-serif;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.header-modal {
+  width: 100%;
+  height: 30px;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.h2-modal {
+  text-align: center;
+  font-size: 24px;
+}
+.h3-regist {
+  font-size: 16px;
+}
+.h3-regist:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: $main-color;
+}
+.mainblock {
+  padding: 10px 45px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.title-dekor {
+  position: relative;
+}
+.title-dekor::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: -50px;
+  width: 64px;
+  height: 54px;
+  background: url("https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/title-decor.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.check-block {
+  margin-top: 10px;
+  color: gray;
+  display: block;
+  width: 95%;
+  label {
+    margin: 0 10px;
+  }
+}
+@media screen and (max-width: 769px) {
+  .text-regist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .check-block {
+    font-size: 14px;
+  }
+  .name,
+  .pass,
+  .inp {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 632px) {
+  .submiter {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 540px) {
+  .check-block {
+    font-size: 10px;
+  }
+}

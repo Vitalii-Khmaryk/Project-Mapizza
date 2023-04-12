@@ -1,0 +1,34 @@
+<div class="wrapper">
+    <div class="container">
+      <h1><span class="title-dekor">Улюблені</span></h1>
+      <div class="row-product-card">
+         
+        <div class="card" *ngFor="let data of likeProduct">
+          <div class="like-button">
+            <div></div>
+            <button class="like" (click)="deleteLike(data)">✖</button>
+          </div>
+          <img [src]="data.imagePath" [routerLink]="['/product/'+data.category.path,data.id]" alt="">
+          <div class="name-product">
+            <h4 [routerLink]="['/product/'+data.category.path,data.id]">{{data.name}}</h4>
+          </div>
+          <div class="ingrid">
+            <p>{{data.ingredients}}</p>
+          </div>
+          <div class="div-price">
+               <p><b>{{data.price*data.count}} грн</b>/{{data.weight}} г</p>
+          </div>
+          <div class="panel-control">
+            <div class="input">
+              <button (click)="productCount(data,false)" class="decr">-</button>
+              <input type="text" class="inpValue" disabled style="background-color: white;" [value]="data.count">
+              <button  (click)="productCount(data,true)" class="incr">+</button>
+            </div>
+            <div class="btn">
+              <button (click)="addToBasket(data)" class="red-btn-zamov">ЗАМОВИТИ <i class='bx bx-shopping-bag' style="font-size: 16px;" ></i></button>
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+</div>

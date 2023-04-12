@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="menu">
+      <ul style="padding-top: 3rem">
+        <li [routerLink]="['/']">Піца Львів</li>
+        <li [routerLink]="['/discounts']">Акції</li>
+        <li>{{ currentDiscount.name }}</li>
+      </ul>
+    </div>
+    <div class="baner">
+      <h1 class="h1-title">{{ currentDiscount.title }}</h1>
+    </div>
+    <div class="text">
+      <p>{{ currentDiscount.description }}</p>
+    </div>
+  </div>
+</div>

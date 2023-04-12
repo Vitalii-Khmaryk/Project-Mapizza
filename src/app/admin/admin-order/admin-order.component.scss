@@ -1,0 +1,56 @@
+@import '../../shared/styles/variables';
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+  
+    thead {
+      tr {
+        height: 100px;
+      }
+  
+      th {
+        font-size: 10px;
+        text-align: left;
+        border-bottom: 2px solid black;
+      }
+    }
+  
+    tbody {
+      tr {
+        height: 100px;
+  
+        td {
+          border-bottom: 2px solid gray;
+        }
+  
+        .date{
+            width: 200px;
+        }
+        .id {
+          width: 20px;
+        }
+  
+        .address {
+          width: 200px;
+          line-height: 30px;
+        }
+  
+        .payment {
+          width: 200px;
+          line-height: 30px;
+        }
+        .status{
+          width: 100px;
+        }
+      }
+    }
+  }
+
+.d-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}

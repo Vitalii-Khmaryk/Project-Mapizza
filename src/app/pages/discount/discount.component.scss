@@ -1,0 +1,112 @@
+@import "../../shared/styles/variables";
+.wrapper {
+  width: 100%;
+  margin-top: 170px;
+  font-family: "Mont Blanc", sans-serif;
+}
+
+.container {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 12px;
+  padding-right: 12px;
+  h1 {
+    text-align: center;
+  }
+}
+
+.title-dekor {
+  position: relative;
+}
+.title-dekor::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: -50px;
+  width: 64px;
+  height: 54px;
+  background: url("https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/title-decor.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.block-discount {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+.block-img {
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.block-img img {
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  transition: all 0.7s;
+}
+.block-img img:hover {
+  transform: scale(1.05);
+}
+.inform {
+  width: 50%;
+  height: 100%;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+}
+.desc {
+  margin-top: 20px;
+  word-wrap: break-word;
+  width: 100%;
+  color: $clr-grey;
+  font-size: 18px;
+}
+.h2-name {
+  text-align: center;
+  transition: color 0.5s;
+}
+.h2-name:hover {
+  color: $clr-primary;
+  cursor: pointer;
+}
+.btn {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 200px;
+  height: 30px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  font-weight: bold;
+  transition: $transition;
+}
+.btn:hover{
+color: $clr-primary;
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    width: 100%;
+  }
+  .block-discount {
+    width: 100%;
+    flex-direction: column;
+  }
+  .block-img {
+    width: 70%;
+  }
+  .inform {
+    width: 100%;
+  }
+}

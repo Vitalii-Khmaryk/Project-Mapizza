@@ -1,0 +1,252 @@
+@import "../../shared/styles/variables";
+
+.wrapper {
+    width: 100%;
+    margin-top: 170px;
+    font-family: "Mont Blanc", sans-serif;
+  }
+  
+  .container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .sector-img {
+    margin-bottom: 80px;
+    margin-top: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .baner{
+    border-radius: 15px;
+    width: 80%;
+    height: 200px;
+    background-color: #b5d8f7;
+    background-image: url(../../../assets/images/rome-food.jpg);
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .h1-title{
+        font-size: 40px;
+        color:white;
+        text-shadow: 0 0 10px black;
+    }
+}
+
+.sector-pizza {
+  font-family: "Mont Blanc", sans-serif;
+  margin-bottom: 80px;
+  margin-top: 80px;
+  width: 100%;
+}
+.title-pizza {
+  position: relative;
+  font-weight: 600;
+  &-dekor {
+    position: absolute;
+    top: -30px;
+    left: -40px;
+  }
+}
+.row-button {
+  display: flex;
+  align-items: center;
+  button {
+    margin: 10px 3px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid gray;
+    color: gray;
+    font-weight: 600;
+    font-family: "Mont Blanc", sans-serif;
+    width: 110px;
+    height: 30px;
+  }
+}
+
+.row-product-card {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  .like-button {
+    display: flex;
+    justify-content: space-between;
+    .like {
+      background-color: white;
+      border: none;
+      font-size: 25px;
+      color: rgb(170, 150, 150);
+      cursor: pointer;
+      &:hover{
+        color: red;
+      }
+    }
+  }
+  .ingrid {
+    margin-top: 20px;
+  }
+  .name-product {
+    margin-top: 30px;
+  }
+  img {
+    height: 300px;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  .div-price {
+    margin-top: 10px;
+  }
+  .panel-control {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .decr {
+      background-color: white;
+      border-bottom-left-radius: 50%;
+      border-top-left-radius: 50%;
+      border: 1px solid transparent;
+      border-right: 1px solid gray;
+      width: 30px;
+      height: 30px;
+      font-size: 22px;
+      cursor: pointer;
+      transition: $transition;
+      &:hover{
+        background-color:#de1b1b;
+      }
+    }
+    .incr {
+      background-color: white;
+      border-bottom-right-radius: 50%;
+      border-top-right-radius: 50%;
+      border: 1px solid transparent;
+      border-left: 1px solid gray;
+      width: 30px;
+      height: 30px;
+      font-size: 22px;
+      cursor: pointer;
+      transition: $transition;
+      &:hover{
+        background-color:#4aa412;
+      }
+    }
+    .input {
+      width: 120px;
+      border: 1px solid gray;
+      border-radius: 20px;
+      height: 40px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .inpValue {
+      border: transparent;
+      width: 40px;
+      height: 30px;
+      padding-left: 10px;
+      font-size: 16px;
+    }
+    .red-btn-zamov {
+      background-color: red;
+      border: 1px solid red;
+      border-radius: 10px;
+      color: white;
+      font-weight: 600;
+      font-family: "Mont Blanc", sans-serif;
+      width: 120px;
+      height: 40px;
+      transition: $transition;
+      &:hover {
+        background-color: $clr-primary;
+      }
+    }
+  }
+  border: 1px solid grey;
+  background-color: white;
+  width: 30%;
+  border-radius: 10px;
+  margin: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px 20px;
+  cursor: pointer;
+}
+
+.label {
+  width: 30%;
+  position: relative;
+}
+.filtInp {
+  width: 90%;
+  height: 40px;
+  border-radius: 8px;
+  margin-right: 10px;
+  border: 2px solid green;
+  padding-left: 10px;
+  color: $clr-primary;
+  font-size: 16px;
+
+  &:focus {
+    border: 2px solid transparent;
+    outline: 1px solid transparent;
+    box-shadow: 0px 0px 3px 3px $clr-primary;
+  }
+}
+.cross {
+  right: 50px;
+  position: absolute;
+  top: 8px;
+}
+
+
+@media screen and (max-width: 1513px) {
+  .row-product-card {
+    justify-content: center;
+  }
+  .card {
+    width: 400px;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 900px) {
+.label{
+    width: 50%;
+}
+}
+
+@media screen and (max-width:530px) {
+  .card{
+    width: 350px;
+  }
+    .label{
+        width: 100%;
+    }
+    .filtInp{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 410px) {
+  .row-product-card {
+    justify-content: center;
+  }
+  .image img {
+    max-height: 150px;
+  }
+  .image1 img {
+    max-height: 150px;
+  }
+}
+@media screen and (max-width: 370px) {
+.card{
+  width: 300px;
+}
+}

@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@import "ngx-toastr/toastr";
+@import "app/shared/styles/theme-material";
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+

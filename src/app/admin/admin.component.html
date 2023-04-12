@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="tabs">
+        <div [routerLink]="[ 'discount' ]" routerLinkActive="active">Акції</div>
+        <div [routerLink]="[ 'category' ]" routerLinkActive="active">Категорії</div>
+        <div [routerLink]="[ 'product' ]" routerLinkActive="active">Товари</div>
+        <div [routerLink]="[ 'order' ]" routerLinkActive="active">Замовлення</div>
+        <button (click)="logout()"><b>ВИХІД</b></button>
+    </div>
+    <div class="desktop">
+        <router-outlet></router-outlet>
+    </div>
+</div>

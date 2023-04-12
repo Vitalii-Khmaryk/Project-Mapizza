@@ -1,0 +1,56 @@
+<div class="wrapper">
+    <div class="container">
+        <div class="box">
+            <div class="inform">
+               <div class="heading">
+                <h3>Контакти</h3>
+                <div class="tel">
+                    <img src="https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/icons/icon-phone.svg" alt="...">
+                    +38 097 18 306 18
+                 </div>
+                 <div class="tel">
+                    <img src="https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/icons/icon-mail.svg" alt="">         
+                     mamaitalianopizza@gmail.com
+                </div>
+               </div>
+               <div class="center">
+                <h3>Графік роботи</h3>
+                <div class="tel">
+                    <img src="https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/icons/icon-calendar.svg" alt="...">
+                  <span>Працюємо щодня без вихідних з <b>09:30</b> до <b>21:00</b></span>
+                 </div>
+               </div>
+               <div class="inform-footer">
+                <h3>Соцмережі</h3>
+                <div class="social">
+                    <div class="social-block">
+                        <img src="https://mapizza.com.ua/wp-content/uploads/2021/09/i-facebook.svg" alt="">
+                    </div>
+                    <div class="social-block">
+                        <img src="https://mapizza.com.ua/wp-content/uploads/2021/09/i-instagram.svg" alt="">
+                    </div>
+                    <div class="social-block">
+                        <img src="	https://mapizza.com.ua/wp-content/uploads/2021/09/i-you-tube.svg" alt="">
+                    </div>
+                </div>
+               </div>
+            </div>
+            <div class="forma-block">
+                 <h1><span class="title-dekor">Форма зворотнього зв'язку</span></h1>
+                 <div class="form-wrapper">
+                    <form [formGroup]="contactForm" (ngSubmit)="sendContact()">
+                        <div class="form-inner">
+                            <div>
+                            <input type="text" class="inp" formControlName="name" placeholder="*Ім'я">
+                            <input type="text" class="inp" formControlName="phone" placeholder="*Введіть номер телефону">
+                            </div>
+                            <input type="text" formControlName="email" class="inpemail" placeholder="*Email">
+                            <textarea formControlName="message" placeholder="Повідомлення..." cols="30" rows="10"></textarea>
+                                <button type="submit" [disabled]="contactForm.invalid" class="red-btn-zamov">НАДІСЛАТИ<i class='bx bx-right-arrow-circle'></i></button>
+                        </div>
+                    </form>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>

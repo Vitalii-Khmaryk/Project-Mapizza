@@ -1,0 +1,226 @@
+<header class="header__wrapper">
+    <div class="container">
+        <div class="header-top">
+            <div class="header-phone">
+                <p><a href="tel:+380971830618"><b>+380971830618</b></a>
+                    <br>
+                  <span>нд-чт 09:30 − 21:30</span>
+                    <br>
+                  <span> пт- сб 09:30 − 22:30</span>
+                </p>
+            </div>
+            
+            <nav class="header-links">
+                <ul>
+                    <li class="li-link">
+                        <a class="link" [routerLink]="[ '/about' ]">Про нас</a>
+                    </li>
+                    <li class="li-link">
+                        <a class="link" [routerLink]="[ '/delivery' ]">Доставка та оплата</a>
+                    </li>
+                    <li class="li-link">
+                        <a class="link" [routerLink]="[ '/discounts' ]" >Акції</a>
+                    </li>
+                    <li class="li-link">
+                        <a class="link" [routerLink]="[ '/contacts' ]">Контакти</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-info">
+                <img src="https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/icons/i-header-top.svg" alt="...">
+                <p>
+                    <b style="color: green;">29 хв</b>
+                    <span> — середній час доставки</span>
+                </p>
+            </div>
+            <div class="block-btn-login">
+                <div class="heart-img" [routerLink]="[ '/favorite' ]">
+                    <i class='bx bx-heart' ></i>
+                    <div class="block-like">{{totalFavorite}}</div>
+                </div>
+            
+               <ng-container *ngIf="!isLogin">
+                <div class="btn-login">
+                    <button class="button-login" (click)="openLoginDialog()">
+                    <i class='bx bx-user'></i>
+                    Вхід
+                    </button>
+                </div>
+               </ng-container>
+                <ng-container *ngIf="isLogin">
+                <div class="btn-login">
+                    <button class="button-login" [routerLink]="[ '/'+loginUrl ]">
+                    <i class='bx bx-user'></i>
+                    {{loginPage}}
+                    </button>
+                </div>
+            </ng-container>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="header-logo">
+               <a [routerLink]="[ '' ]"><img src="https://mapizza.com.ua/wp-content/uploads/2022/03/logo-pizza-red.svg" alt="..."></a> 
+            </div>
+            <nav class="menu-list">
+                <ul>
+                    <li class="link" [routerLink]="[ '/product/pizza' ]" routerLinkActive="active" >
+                    <a > 
+                        <img src="https://mapizza.com.ua/wp-content/uploads/2021/09/i-menu-1.svg"  alt="">
+                        ПІЦА
+                    </a>
+                    </li>
+                    <li class="link" [routerLink]="[ '/product/salads' ]" routerLinkActive="active">
+                       <a >
+                        <img src="https://mapizza.com.ua/wp-content/uploads/2021/09/i-menu-2.svg" alt="">
+                        САЛАТИ</a>
+                    </li>
+                    <li class="link" [routerLink]="[ '/product/deserts' ]" routerLinkActive="active">
+                    <a >
+                        <img src="https://mapizza.com.ua/wp-content/uploads/2021/09/i-menu-3.svg" alt="">
+                        ДЕСЕРТИ</a>
+                    </li>
+                    <li class="link" [routerLink]="[ '/product/drinks' ]" routerLinkActive="active">
+                       <a > 
+                        <img src="	https://mapizza.com.ua/wp-content/uploads/2021/09/i-menu-4.svg" alt="">
+                        НАПОЇ</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="heart-img-bottom"  [routerLink]="[ '/favorite' ]">
+                <i class='bx bx-heart' ></i>
+                <div class="block-like2">{{totalFavorite}}</div>
+            </div>
+            <ng-container *ngIf="!isLogin">
+                <div class="btn-login-bottom">
+                    <button class="button-login-bottom" (click)="openLoginDialog()">
+                    <i class='bx bx-user'></i>
+                    <span style="font-size: 12px;">Вхід</span>
+                    </button>
+                </div>
+               </ng-container>
+                <ng-container *ngIf="isLogin">
+                <div class="btn-login-bottom">
+                    <button class="button-login-bottom" [routerLink]="[ '/'+loginUrl ]">
+                    <i class='bx bx-user'></i>
+                  <span style="font-size: 12px;">{{loginPage}}</span>
+                    </button>
+                </div>
+            </ng-container>
+            <div class="basket-wrapper" (click)="showBasket()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="M21 9h-1.42l-3.712-6.496-1.736.992L17.277 9H6.723l3.146-5.504-1.737-.992L4.42 9H3a1.001 1.001 0 0 0-.965 1.263l2.799 10.264A2.005 2.005 0 0 0 6.764 22h10.473c.898 0 1.692-.605 1.93-1.475l2.799-10.263A.998.998 0 0 0 21 9zm-3.764 11v1-1H6.764L4.31 11h15.38l-2.454 9z"></path><path d="M9 13h2v5H9zm4 0h2v5h-2z"></path></svg>
+                <div class="num">{{count}}</div>
+                <span class="price" >{{total}} грн</span>
+            </div>
+   
+    <ng-container *ngIf="blurStatus"> 
+    <div class="blur">
+        <div class="basket-container">
+             <div class="top-basket">
+                  <div></div>
+                  <div>
+                    <h2 class="h2-modal">
+                        <span class="title-dekor">Кошик</span>
+                      </h2>
+                  </div>
+                  <div (click)="closeblurBasket()" style="cursor: pointer;" >✖</div>
+             </div>
+           <ng-container *ngIf="empty">
+            <div class="empty">
+                    <h2>Кошик порожній</h2>
+              <a style="text-decoration: none;color: black" [routerLink]="[ '' ]">
+                    <button class="catalogBtn" (click)="catalog()" >ПЕРЕЙТИ ДО КАТАЛОГУ</button>
+              </a>
+            </div>
+         </ng-container> 
+    
+            <ng-container *ngIf="!empty">
+          <div class="central">
+            <div class="center-basket"  *ngFor="let item of basket" >
+                <div >
+                <img [src]="item.imagePath" height="150px" alt="...">
+                </div>
+                <div class="basket-info">
+                 <div class="name-cross">
+                <div class="name"><b>{{item.name}}</b></div>
+                <div class="trash" (click)="localDelete(item)">✖</div>
+                </div>
+                <div class="details-info">
+                    <div>{{item.price}} грн</div>
+                <div class="panel-control">
+                    <div class="input">
+                    <button class="decr" (click)="decrementProductCount(item)">-</button>
+                    <input type="text" name="num" disabled style="background-color: white;" class="inpValue" [value]="item.count">
+                    <button class="incr" (click)="incrementProductCount(item)">+</button>
+                 </div>
+                </div>
+              <div >
+              </div>
+                <div class="sum">{{item.price * item.count}} грн</div>
+                </div>
+             </div>
+            </div>
+            </div>
+        </ng-container>
+    
+    
+            <div class="bottom-basket" >
+                <div class="suma">
+                    Сума: <b>{{total}}</b> грн
+                </div>
+                <div>
+                    <ng-container *ngIf="empty">
+                    <button  class="catalogBtn" [routerLink]="[ '' ]" (click)="closeblurBasket()">ОФОРМИТИ ЗАМОВЛЕННЯ</button>
+                    </ng-container>
+                    <ng-container *ngIf="!empty">
+                        <button  class="catalogBtn" [routerLink]="[ '/checkout' ]" (click)="closeblurBasket()" >ОФОРМИТИ ЗАМОВЛЕННЯ</button>
+                    </ng-container>
+                </div>
+            </div>
+        </div> 
+     </div>
+    </ng-container>
+    
+
+
+            <div class="header-burger" [ngClass]="{'activeBurder': mobileVar}"  (click)="burger()">
+                <span></span>
+            </div>
+           <div class="mob-menu">
+            <div [routerLink]="[ '/product/pizza' ]">ПІЦА</div>
+            <div [routerLink]="[ '/product/salads' ]">САЛАТИ</div>
+            <div [routerLink]="[ '/product/deserts' ]">ДЕСЕРТИ</div>
+            <div [routerLink]="[ '/product/drinks' ]">НАПОЇ</div>
+           </div>
+        </div>
+    </div>
+</header>
+<ng-container *ngIf="mobileVar">
+
+<div class="mobile-menu">
+    <div class="mobile-wrapper" [ngClass]="{'mobile-wrapper': mobileVar}">
+        <ul class="mobile-menu-list">
+            <li style="display: flex;margin-top: 10px;">
+                <img src="https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/icons/i-header-top.svg" alt="...">
+                    <b>29 хв</b>
+                    <span> — середній час доставки</span>
+            </li>
+            <br>
+            <li [routerLink]="[ '/delivery' ]" (click)="closeMenu()">Доставка та оплата</li>
+            <br>
+            <li [routerLink]="[ '/discounts' ]" (click)="closeMenu()">Акції</li>
+            <br>
+            <li [routerLink]="[ '/contacts' ]" (click)="closeMenu()">Контакти</li>
+            <br>
+            <li [routerLink]="[ '/about' ]" (click)="closeMenu()" >Про нас</li>
+        </ul>
+        <br>
+        <p><a class="tel" href="tel:+380971830618"><b>+380971830618</b></a>
+            <br>
+          <span>нд-чт 09:30 − 21:30</span>
+            <br>
+          <span> пт- сб 09:30 − 22:30</span>
+        </p>
+    </div>
+</div>
+</ng-container>

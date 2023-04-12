@@ -1,0 +1,244 @@
+@import "../../shared/styles/variables";
+$main-color: green;
+.container {
+  margin-top: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 600px;
+  font-family: "Mont Blanc", sans-serif;
+}
+.wrapper {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.title-dekor {
+  position: relative;
+}
+.title-dekor::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: -50px;
+  width: 64px;
+  height: 54px;
+  background: url("https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/title-decor.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.panel {
+  background-color: rgb(255, 255, 255);
+  margin-top: 40px;
+  border-radius: 15px;
+  border: 1px solid gray;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btn {
+  background-color: white;
+  width: 150px;
+  height: 40px;
+  border-radius: 15px;
+  color: gray;
+  border: 1px solid transparent;
+  font-size: 15px;
+  color: gray;
+  cursor: pointer;
+  transition: $transition;
+}
+
+.active {
+  font-weight: bold;
+  color: white;
+  border-radius: 15px;
+  background-color: red;
+}
+.forma {
+  height: 100%;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 70px;
+}
+.input-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.inner-forma {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form {
+  width: 80%;
+}
+.userinp {
+  outline: none;
+  margin-top: 10px;
+  display: inline-block;
+  width: 100%;
+  height: 60px;
+  border-radius: 8px;
+  border: 1px solid gray;
+  padding-left: 10px;
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+
+  &:focus {
+    border: 2px solid $main-color;
+    box-shadow: 0px 0px 3px 3px $main-color;
+  }
+}
+.inp {
+  outline: none;
+  margin-top: 20px;
+  display: inline-block;
+  width: 49%;
+  height: 60px;
+  border-radius: 8px;
+  border: 1px solid gray;
+  padding-left: 10px;
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+
+  &:focus {
+    border: 2px solid $main-color;
+    box-shadow: 0px 0px 3px 3px $main-color;
+  }
+}
+.d-flex {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+}
+.adres {
+  width: 80%;
+}
+.btnAqua {
+  margin-top: 20px;
+  font-family: "Mont Blanc", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: $main-color;
+  border: 1px solid transparent;
+  width: 49%;
+  height: 60px;
+  color: white;
+  border-radius: 9px;
+  transition: $transition;
+  &:hover {
+    background-color: white;
+    color: green;
+    border: 1px solid green;
+  }
+}
+.btnAqua2 {
+  margin-top: 20px;
+  font-family: "Mont Blanc", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: red;
+  border: 1px solid transparent;
+  width: 220px;
+  height: 60px;
+  color: white;
+  border-radius: 9px;
+  transition: $transition;
+  &:hover {
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+  }
+}
+.spanCatalog {
+  cursor: pointer;
+  color: $main-color;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.spanNum {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  background-color: $main-color;
+  border-radius: 10px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+  
+    thead {
+      tr {
+        height: 70px;
+      }
+  
+      th {
+        font-size: 10px;
+        text-align: left;
+        border-bottom: 2px solid black;
+      }
+    }
+  
+    tbody {
+      tr {
+        height: 100px;
+  
+        td {
+          border-bottom: 2px solid gray;
+        }
+  
+        .date,
+        .id {
+          width: 200px;
+        }
+  
+        .address {
+          width: 200px;
+          line-height: 30px;
+        }
+  
+        .payment {
+          width: 200px;
+          line-height: 30px;
+        }
+        .status{
+          width: 100px;
+        }
+      }
+    }
+  }
+@media screen and (max-width: 969px) {
+  .wrapper {
+    width: 100%;
+  }
+  .panel {
+    width: 80%;
+  }
+  .forma {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 649px) {
+  .inp {
+    width: 50%;
+  }
+  .btnAqua {
+    width: 50%;
+  }
+}
+
+

@@ -1,0 +1,31 @@
+<div class="wrapper">
+    <table>
+        <thead>
+          <tr>
+            <th>№</th>
+            <th>Дата і час</th>
+            <th>Ім'я користувача</th>
+            <th>Тип доставки і адреса</th>
+            <th>Сума і тип оплати</th>
+            <th>Статус</th>
+            <th>Пошта користувача</th>
+            <th>Номер телефону</th>
+            <th>Замовлення</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let orderUser of orderAdmin; let i=index" style="font-size: 14px;">
+            <td class="id">{{i+1}}</td>
+            <td class="name">{{orderUser.date}}</td>
+            <td class="title">{{orderUser.name}}</td>
+            <td class="description">{{orderUser.typeOrder}} | {{orderUser.address}}  {{orderUser.userHome}} {{orderUser.userEntrance}} {{orderUser.userStreetOrder}}</td>
+            <td>{{orderUser.payment}} | {{orderUser.suma}} грн</td>
+            <td class="image">{{orderUser.status}}</td>
+            <td>{{orderUser.email}}</td>
+            <td>{{orderUser.phone}}</td>
+            <td class="d-flex" *ngFor="let item of orderUser.orders">Кількість:{{item.count}} | {{item.category.name}} | {{item.name}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

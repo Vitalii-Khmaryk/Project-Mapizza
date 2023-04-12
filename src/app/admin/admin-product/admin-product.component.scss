@@ -1,0 +1,183 @@
+@import '../../shared/styles/variables';
+
+$main-color:green;
+
+%input-style {
+    height: 60px;
+    border-radius: 8px;
+    border: 2px solid gray;
+    padding-left: 10px;
+    color: gray;
+    font-size: 18px;
+
+    &:focus {
+        border: 2px solid $main-color;
+        box-shadow: 0px 0px 3px 3px $main-color;
+    }
+}
+
+.container {
+    width: 100%;
+
+    .create {
+        width: 200px;
+        height: 50px;
+        border: 3px solid $main-color;
+        background-color: $main-color;
+        border-radius: 8px;
+        font-size: 20px;
+        cursor: pointer;
+        color: white;
+        transition: $transition;
+        margin-bottom: 20px;
+
+        &:hover {
+            color: black;
+            background-color: white;
+        }
+    }
+
+    .add {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+
+        select {
+            width: 97%;
+            height: 60px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 2px solid gray;
+            color: gray;
+            font-size: 18px;
+            padding-left: 10px;
+            cursor: pointer;
+        }
+
+        .name,
+        .path,
+        .weight,
+        .price {
+            @extend %input-style;
+            width: 48%;
+            margin-right: 10px;
+        }
+
+        .ingredients {
+            width: 97%;
+            @extend %input-style;
+            margin: 20px 0px;
+        }
+
+        .add-img {
+            width: 97%;
+            height: 60px;
+            border-radius: 8px;
+            border: 2px solid gray;
+            margin-top: 20px;
+            padding: 17px;
+            display: flex;
+
+            input[type=file] {
+                font-size: 14px;
+            }
+
+            .wrapper {
+                width: 570px;
+                height: 20px;
+                border-radius: 5px;
+
+                .progress {
+                    width: 0%;
+                    border-radius: 5px;
+                    height: 100%;
+                    background-color: dodgerblue;
+                }
+            }
+        }
+
+        .prev-image {
+            width: 360px;
+            height: 100px;
+            display: flex;
+            margin-top: 20px;
+
+            img {
+                width: 70%;
+                height: 100%;
+            }
+
+            .delete-img {
+                width: 30%;
+                height: 50%;
+                margin-left: 20px;
+            }
+        }
+
+        button {
+            width: 25%;
+            height: 50px;
+            border-radius: 8px;
+            background-color: $main-color;
+            border: 3px solid $main-color;
+            font-size: 18px;
+            transition: $transition;
+            cursor: pointer;
+            margin-top: 20px;
+
+            &:hover {
+                background-color: white;
+            }
+        }
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+        thead {
+
+            tr {
+                height: 70px;
+            }
+
+            th {
+                text-align: left;
+                border-bottom: 2px solid $main-color;
+            }
+        }
+
+        tbody {
+
+            tr {
+                height: 100px;
+
+                td {
+                    border-bottom: 2px solid gray;
+                }
+
+                img {
+                    width: 100px;
+                }
+
+                .actions {
+                    width: 12%;
+                    height: 100px;
+
+                    p {
+                        color: black;
+                        font-weight: bold;
+                        margin-bottom: 10px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.under:hover{
+    color: aqua;
+    text-decoration: underline;
+}

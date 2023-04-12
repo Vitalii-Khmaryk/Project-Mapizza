@@ -1,0 +1,96 @@
+<div class="wrapper">
+    <div class="container">
+        <h1><span class="title-dekor">Оформлення замовлення</span></h1>
+        <div class="twobox">
+            <div class="product">
+                  <div class="central">
+                    <div class="center-basket"  *ngFor="let item of basket" >
+                        <div >
+                        <img [src]="item.imagePath" height="150px" alt="...">
+                        </div>
+                        <div class="basket-info">
+                         <div class="name-cross">
+                        <div class="name"><b>{{item.name}}</b></div>
+                        <div class="trash" (click)="localDelete(item)">✖</div>
+                        </div>
+                        <div class="details-info">
+                            <div>{{item.price}} грн</div>
+                        <div class="panel-control">
+                            <div class="input">
+                            <button class="decr" (click)="decrementProductCount(item)">-</button>
+                            <input type="text" name="num" disabled style="background-color: white;" class="inpValue" [value]="item.count">
+                            <button class="incr" (click)="incrementProductCount(item)">+</button>
+                         </div>
+                        </div>
+                      <div >
+                      </div>
+                        <div class="sum">{{item.price * item.count}} грн</div>
+                        </div>
+                     </div>
+                    </div>
+                    </div>
+            </div>
+            <div class="inform">
+                <form >
+                <h2>Контактні дані</h2>
+                <div class="d-flex">
+                    <input type="text"  class="inp"  name="userFullName" [(ngModel)]="userFullName" placeholder="*Ваше ім'я" >
+                    <input type="text"  class="inp" name="userPhone" placeholder="*Телефон" [(ngModel)]="userPhone">
+                    </div>
+                    <input type="email"  class="inpemail" name="userEmail" placeholder="Email(для отримання копії замовлення)" [(ngModel)]="userEmail">
+                <h2>Інформація про доставку</h2>
+                <div class="d-flex">
+                     <div class="w-100">
+                        <input type="radio" name="rad1" id="r1" [checked]="deliveryType === 'delivery'" (change)="deliveryType = 'delivery'; startContainer()">
+                         <label class="m10" for="r1">Адресна доставка</label>
+
+                         <input type="radio" name="rad1" id="r2" [checked]="deliveryType === 'pickup'" (change)="deliveryType = 'pickup'; startContainer()">
+                          <label class="m10" for="r2">Самовивіз</label>
+
+                        
+                      </div>
+                      <ng-container *ngIf="container1===true">
+                        <input type="text" class="inpemail"  style="background-color: white;" disabled value="Львів">
+                        <input type="text"  class="inpemail" placeholder="*Вулиця" name="userAddress" [(ngModel)]="userAddress">
+                        <input type="text"  class="inp"  placeholder="Будинок" name="userHome" [(ngModel)]="userHome">
+                        <input type="text"  class="inp"  placeholder="Під'їзд" name="userEntrance" [(ngModel)]="userEntrance">
+                        <div class="map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d55740.58329519446!2d24.003585268461187!3d49.85235229116036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1suk!2sua!4v1681215367194!5m2!1suk!2sua" width="450" height="300" style="border-radius:15px;border: transparent;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        </ng-container>
+                      <ng-container *ngIf="container1===false">
+                        <select class="inpselect" name="userSelectStreet" [(ngModel)]="userSelectStreet">
+                            <option value="" disabled selected hidden>*Виберіть адресу самовивозу</option>
+                            <option value="Залізнична, 19">Залізнична, 19</option>
+                            <option value="Малоголосівська, 16">Малоголосівська, 16 </option>
+                            <option value="Пулюя, 12">Пулюя, 12</option>
+                            <option value="Червоної калини, 60">Червоної калини, 60</option>
+                            <option value="Івана Франка, 71">Івана Франка, 71</option>
+                        </select>
+                      </ng-container>
+                      <h2 class="oplata">Параметри оплати</h2>
+                      <input type="radio" id="r3" name="radio" value="Готівка" [(ngModel)]="radio" (change)="startContainer()">
+                      <label class="m10" for="r3">Готівка</label>
+                      
+                      <input type="radio" name="radio" id="r4" value="Онлайн оплата" [(ngModel)]="radio" (change)="startContainer()">
+                      <label class="m10" for="r4">Онлайн оплата</label>
+                      
+                      <input type="radio" name="radio" id="r5" value="Оплата через термінал" [(ngModel)]="radio" (change)="startContainer()">
+                      <label class="m10" for="r5">Оплата через термінал</label>
+                      
+                      <div class="w-100">
+                              <div class="zag">
+                                <span><b>Загальна вартість:</b></span>
+                                <span>{{total}} грн</span>
+                              </div>
+                              <input type="checkbox" name="toCall" [(ngModel)]="toCall" id="r6"><label class="m10" for="r6">Зателефонуйте мені для уточнення замовлення</label>
+                      </div>
+                     <div class="df">
+                     <button class="order" (click)="saveUserOrder()" type="submit" [disabled]="logic" >ПІДТВЕРДИТИ ЗАМОВЛЕННЯ</button>
+                </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>

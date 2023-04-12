@@ -1,0 +1,106 @@
+@import "../../shared/styles/variables";
+.wrapper {
+  font-family: "Mont Blanc", sans-serif;
+  width: 100%;
+  margin-top: 170px;
+  margin-bottom: 30px;
+}
+.container {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 12px;
+  padding-right: 12px;
+  h1 {
+    text-align: center;
+  }
+  p {
+    font-size: 20px;
+    font-weight: 400;
+    color: $clr-grey;
+  }
+}
+.title-dekor {
+    position: relative;
+}
+.title-dekor::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: -50px;
+    width: 64px;
+    height: 54px;
+    background: url("https://mapizza.com.ua/wp-content/themes/mamma-italiana/img/title-decor.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+.twobox{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.threebox{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.box{
+    margin: 20px 10px;
+    width: 45%;
+    border: 1px solid rgb(220, 216, 209);
+    border-radius: 15px;
+    height: 100px;
+    box-shadow: 10px 10px 10px $clr-third;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    .ul{
+        list-style-type: none;
+        li{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}
+
+  @media screen and (max-width: 1100px) {
+    .container h1 {
+      font-size: 20px;
+    }
+    .container p {
+      font-size: 16px;
+    }
+  }
+  @media screen and (max-width: 1000px) {
+    .container{
+        width: 90%;
+    }
+  }
+  @media screen and (max-width: 981px) {
+    .twobox,.threebox{
+        flex-direction: column;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .container{
+        width: 100%;
+    }
+    .box{
+        font-size: 12px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .box{
+        width: 90%;
+    }
+  }
