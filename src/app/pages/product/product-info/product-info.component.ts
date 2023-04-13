@@ -16,7 +16,6 @@ export class ProductInfoComponent {
   ){}
   ngOnInit():void{
     this.activatedRoute.data.subscribe(response=>{
-      console.log(response);
       this.currentProduct=response['productInfo'];
     })
   }

@@ -11,140 +11,153 @@ import { Router } from '@angular/router';
   styleUrls: ['./checkout.component.scss'],
 })
 export class CheckoutComponent {
-  public container1!:boolean;
+  public container1!: boolean;
 
   public total = 0;
   public basket: Array<IProductResponce> = [];
   public count = 0;
-  public userEmail='';
-  public userFullName='';
-  public userPhone='';
-  public userAddress='';
+  public userEmail = '';
+  public userFullName = '';
+  public userPhone = '';
+  public userAddress = '';
 
-  public userHome='';
-  public userEntrance='';
-  public userSelectStreet='';
-  public radio='';
-  public toCall=false;
-  public deliveryType='';
+  public userHome = '';
+  public userEntrance = '';
+  public userSelectStreet = '';
+  public radio = '';
+  public toCall = false;
+  public deliveryType = '';
 
-  public logic=true;
+  public logic = true;
 
-  public arrOrders:any[]=[];
+  public arrOrders: any[] = [];
 
-  constructor(private orderService: OrderService,
-    private router:Router,
+  constructor(
+    private orderService: OrderService,
+    private router: Router,
     private toastr: ToastrService,
-    private afs:Firestore,
-    ) {}
+    private afs: Firestore
+  ) {}
   ngOnInit(): void {
     this.loadBasket();
     this.updateBasket();
     this.loadUser();
   }
 
-  
-  saveUserOrder(){
-    const currentUser = JSON.parse(localStorage.getItem('currentUser') as string);
-   if (!currentUser || !currentUser.uid) {
-    this.toastr.warning('Зареєструйтесь щоб замовити');
-   }else{
-    if (this.deliveryType === 'delivery') {
-      const d=new Date();
-      const dd=`${d.getHours()}:${d.getMinutes()} , ${d.getDate()}.${d.getMonth()+1}.${d.getFullYear()}`;
-      const userOrder={
-        date:dd,
-        uid:currentUser.uid,
-        name:this.userFullName,
-        email:this.userEmail,
-        phone:this.userPhone,
-        address:this.userAddress,
-        userHome:this.userHome,
-        userEntrance:this.userEntrance,
-        userStreetOrder:this.userSelectStreet,
-        payment:this.radio,
-        toCall:this.toCall,
-        orders:currentUser.orders,
-        suma:this.total,
-        status:'Замовлено',
-        typeOrder:'Доставка'
+  saveUserOrder() {
+    const currentUser = JSON.parse(
+      localStorage.getItem('currentUser') as string
+    );
+    if (!currentUser || !currentUser.uid) {
+      this.toastr.warning('Зареєструйтесь щоб замовити');
+    } else {
+      if (this.deliveryType === 'delivery') {
+        const d = new Date();
+        const dd = `${d.getHours()}:${d.getMinutes()} , ${d.getDate()}.${
+          d.getMonth() + 1
+        }.${d.getFullYear()}`;
+        const userOrder = {
+          date: dd,
+          uid: currentUser.uid,
+          name: this.userFullName,
+          email: this.userEmail,
+          phone: this.userPhone,
+          address: this.userAddress,
+          userHome: this.userHome,
+          userEntrance: this.userEntrance,
+          userStreetOrder: this.userSelectStreet,
+          payment: this.radio,
+          toCall: this.toCall,
+          orders: currentUser.orders,
+          suma: this.total,
+          status: 'Замовлено',
+          typeOrder: 'Доставка',
+        };
+        if (currentUser.orders.length !== 0) {
+          if (localStorage.getItem('orders') == null) {
+            this.arrOrders.push(userOrder);
+            localStorage.setItem('orders', JSON.stringify(this.arrOrders));
+            setDoc(doc(this.afs, 'orders', userOrder.uid), userOrder);
+            this.toastr.success('Замовлення відправлено(з доставкою)');
+            this.router.navigate(['/']);
+          } else {
+            this.arrOrders = JSON.parse(
+              localStorage.getItem('orders') as string
+            );
+            this.arrOrders.push(userOrder);
+            localStorage.setItem('orders', JSON.stringify(this.arrOrders));
+            setDoc(doc(this.afs, 'orders', userOrder.uid), userOrder);
+            this.toastr.success('Замовлення відправлено(з доставкою)');
+            this.router.navigate(['/']);
+          }
+        } else if (currentUser.orders.length == 0) {
+          this.toastr.warning('Немає продуктів');
+        }
+      } else if (this.deliveryType === 'pickup') {
+        const d = new Date();
+        const dd = `${d.getHours()}:${d.getMinutes()} , ${d.getDate()}.${
+          d.getMonth() + 1
+        }.${d.getFullYear()}`;
+        const userOrder = {
+          date: dd,
+          uid: currentUser.uid,
+          name: this.userFullName,
+          email: this.userEmail,
+          phone: this.userPhone,
+          address: this.userAddress,
+          userHome: this.userHome,
+          userEntrance: this.userEntrance,
+          userStreetOrder: this.userSelectStreet,
+          payment: this.radio,
+          toCall: this.toCall,
+          orders: currentUser.orders,
+          suma: this.total,
+          status: 'Замовлено',
+          typeOrder: 'Самовивіз',
+        };
+        if (currentUser.orders.length !== 0) {
+          if (localStorage.getItem('orders') == null) {
+            this.arrOrders.push(userOrder);
+            localStorage.setItem('orders', JSON.stringify(this.arrOrders));
+            setDoc(doc(this.afs, 'orders', userOrder.uid), userOrder);
+            this.toastr.success('Замовлення відправлено(самовивіз)');
+            this.router.navigate(['/']);
+          } else {
+            this.arrOrders = JSON.parse(
+              localStorage.getItem('orders') as string
+            );
+            this.arrOrders.push(userOrder);
+            localStorage.setItem('orders', JSON.stringify(this.arrOrders));
+            setDoc(doc(this.afs, 'orders', userOrder.uid), userOrder);
+            this.toastr.success('Замовлення відправлено(самовивіз)');
+            this.router.navigate(['/']);
+          }
+        } else if (currentUser.orders.length == 0) {
+          this.toastr.warning('Немає продуктів');
+        }
       }
-     if (currentUser.orders.length!==0) {
-      console.log(userOrder);
-      console.log(currentUser);
-      if (localStorage.getItem('orders') ==null) {
-      this.arrOrders.push(userOrder);
-      localStorage.setItem('orders', JSON.stringify(this.arrOrders));
-      setDoc(doc(this.afs,'orders',userOrder.uid),userOrder);
-      this.toastr.success('Замовлення відправлено(з доставкою)'); 
-      this.router.navigate(['/']);
-      }else{ 
-      this.arrOrders = JSON.parse(localStorage.getItem('orders') as string);
-      this.arrOrders.push(userOrder);
-      localStorage.setItem('orders', JSON.stringify(this.arrOrders));
-      setDoc(doc(this.afs,'orders',userOrder.uid),userOrder);
-      this.toastr.success('Замовлення відправлено(з доставкою)'); 
-      this.router.navigate(['/']);
-      }
-      
-    }  
-     else if(currentUser.orders.length==0){
-      this.toastr.warning('Немає продуктів'); 
-     }
-    } else if(this.deliveryType==='pickup') {
-      const d=new Date();
-      const dd=`${d.getHours()}:${d.getMinutes()} , ${d.getDate()}.${d.getMonth()+1}.${d.getFullYear()}`;
-      const userOrder={
-        date:dd,
-        uid:currentUser.uid,
-        name:this.userFullName,
-        email:this.userEmail,
-        phone:this.userPhone,
-        address:this.userAddress,
-        userHome:this.userHome,
-        userEntrance:this.userEntrance,
-        userStreetOrder:this.userSelectStreet,
-        payment:this.radio,
-        toCall:this.toCall,
-        orders:currentUser.orders,
-        suma:this.total,
-        status:'Замовлено',
-        typeOrder:'Самовивіз'
-      }
-     if (currentUser.orders.length!==0) {
-      console.log(userOrder);
-      console.log(currentUser);
-      if (localStorage.getItem('orders') ==null) {
-        this.arrOrders.push(userOrder);
-        localStorage.setItem('orders', JSON.stringify(this.arrOrders));
-        setDoc(doc(this.afs,'orders',userOrder.uid),userOrder);
-        this.toastr.success('Замовлення відправлено(самовивіз)'); 
-        this.router.navigate(['/']);
-      }else{
-      this.arrOrders = JSON.parse(localStorage.getItem('orders') as string);
-      this.arrOrders.push(userOrder);
-      localStorage.setItem('orders', JSON.stringify(this.arrOrders));
-      setDoc(doc(this.afs,'orders',userOrder.uid),userOrder);
-      this.toastr.success('Замовлення відправлено(самовивіз)'); 
-      this.router.navigate(['/']);
-       }
-     }  
-     else if (currentUser.orders.length==0){
-      this.toastr.warning('Немає продуктів'); 
-     }
     }
-   }
-   
-    
   }
 
   startContainer() {
     if (this.deliveryType === 'delivery') {
       this.container1 = true;
-      this.logic=!this.userFullName || !this.userPhone || !this.userEmail || !this.userAddress || !this.userHome || !this.userEntrance || !this.radio;
-    }else if (this.deliveryType==='pickup') {
+      this.logic =
+        !this.userFullName ||
+        !this.userPhone ||
+        !this.userEmail ||
+        !this.userAddress ||
+        !this.userHome ||
+        !this.userEntrance ||
+        !this.radio;
+    } else if (this.deliveryType === 'pickup') {
       this.container1 = false;
-      this.logic=!this.userFullName || !this.userPhone || !this.userEmail || !this.userSelectStreet || !this.radio;
+      this.logic =
+        !this.userFullName ||
+        !this.userPhone ||
+        !this.userEmail ||
+        !this.userSelectStreet ||
+        !this.radio;
     }
   }
 
@@ -212,22 +225,25 @@ export class CheckoutComponent {
       }
     }
   }
-loadUser(){
-  if (localStorage.length > 0 && localStorage.getItem('currentUser')) {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser') as string);
-    const currentBasket=JSON.parse(localStorage.getItem('basket') as string);
-    currentUser.orders=currentBasket;
-    this.userFullName = `${currentUser.firstName} ${currentUser.lastName}`;
-    this.userEmail=currentUser.email;
-    this.userPhone=currentUser.phoneNumber;
-    this.userAddress=currentUser.address;
-    localStorage.setItem('currentUser', JSON.stringify(currentUser));
-   }else{
-    this.userFullName ='';
-    this.userEmail='';
-    this.userPhone='';
-    this.userAddress='';
-   }
-}
-
+  loadUser() {
+    if (localStorage.length > 0 && localStorage.getItem('currentUser')) {
+      const currentUser = JSON.parse(
+        localStorage.getItem('currentUser') as string
+      );
+      const currentBasket = JSON.parse(
+        localStorage.getItem('basket') as string
+      );
+      currentUser.orders = currentBasket;
+      this.userFullName = `${currentUser.firstName} ${currentUser.lastName}`;
+      this.userEmail = currentUser.email;
+      this.userPhone = currentUser.phoneNumber;
+      this.userAddress = currentUser.address;
+      localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    } else {
+      this.userFullName = '';
+      this.userEmail = '';
+      this.userPhone = '';
+      this.userAddress = '';
+    }
+  }
 }

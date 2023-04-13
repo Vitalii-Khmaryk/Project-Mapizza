@@ -239,6 +239,24 @@ table {
   .btnAqua {
     width: 50%;
   }
+  .d-flex{
+    width: 100%;
+  }
 }
-
+@media screen and (max-width: 510px) {
+  .forma{
+    padding: 0;
+  }
+  .input-row,.d-flex{
+    flex-direction: column;
+  }
+  .inp{
+    width: 100%;
+    margin-top: 5px;
+  }
+  .btnAqua,.btnAqua2{
+    margin-top: 0;
+    width: 100%;
+  }
+}
 

@@ -227,6 +227,9 @@
   align-items: center;
   flex-direction: column;
 }
+.mainImg{
+  height: 150px;
+}
 @media screen and (max-width: 1364px) {
   .inp {
     width: 85%;
@@ -255,4 +258,30 @@
     .inpselect{
         width: 75%;
     }
+}
+@media screen and (max-width: 505px) {
+  .m10{
+    font-size: 13px;
+  }
+  .heading{
+    margin-top: 5px;
+    font-size: 15px;
+  }
+  .inform{
+    width: 100%;
+  }
+  .mainImg{
+    height: 100px;
+  }
+  .panel-control{
+    width: 100px;
+  }
+.center-basket{
+  padding: 0;
+}
+}
+@media screen and (max-width: 340px) {
+  .mainImg{
+    height: 90px;
+  }
 }

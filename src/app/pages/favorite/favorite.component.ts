@@ -44,12 +44,14 @@ export class FavoriteComponent {
     }
     localStorage.setItem('basket', JSON.stringify(basket));
     data.count = 1;
+    this.orderService.changeFavorite.next(true);
     this.orderService.changeBasket.next(true);
   }
   deleteLike(data: any): void {
     const index = this.likeProduct.findIndex((prod) => prod.id === data.id);
     this.likeProduct.splice(index, 1);
     localStorage.setItem('favoriteArray', JSON.stringify(this.likeProduct));
+    this.orderService.changeFavorite.next(true);
     this.toastr.warning('Продукт видалено з улюблених');
   }
 }

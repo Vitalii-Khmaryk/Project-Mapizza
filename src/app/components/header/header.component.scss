@@ -218,6 +218,7 @@
   top: -11px;
   left: 11px;
   background-color: red;
+  color: white;
   border-radius: 50%;
   width: 20px;
   height: 20px;
@@ -519,9 +520,7 @@ $main-color: green;
     justify-content: center;
     align-items: center;
   }
-  .price {
-    width: 50px;
-  }
+  
 }
 
 .mobile-menu {
@@ -579,9 +578,25 @@ $main-color: green;
   }
 }
 @media screen and (max-width: 445px) {
+  .price{
+    display: none;
+  }
 .details-info{
   display: block;
 }
+.header-burger{
+  margin-left: 10px;
+}
+.catalogBtn{
+  width: 180px;
+  font-size: 12px;
+}
+}
+@media screen and (max-width: 360px) {
+  .catalogBtn{
+    width: 150px;
+    font-size: 10px;
+  }
 }
 .header-burger.activeBurder::before {
   transform: rotate(45deg);

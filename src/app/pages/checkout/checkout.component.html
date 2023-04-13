@@ -6,7 +6,7 @@
                   <div class="central">
                     <div class="center-basket"  *ngFor="let item of basket" >
                         <div >
-                        <img [src]="item.imagePath" height="150px" alt="...">
+                        <img [src]="item.imagePath" class="mainImg" alt="...">
                         </div>
                         <div class="basket-info">
                          <div class="name-cross">
@@ -32,13 +32,13 @@
             </div>
             <div class="inform">
                 <form >
-                <h2>Контактні дані</h2>
+                <h2 class="heading">Контактні дані</h2>
                 <div class="d-flex">
                     <input type="text"  class="inp"  name="userFullName" [(ngModel)]="userFullName" placeholder="*Ваше ім'я" >
                     <input type="text"  class="inp" name="userPhone" placeholder="*Телефон" [(ngModel)]="userPhone">
                     </div>
                     <input type="email"  class="inpemail" name="userEmail" placeholder="Email(для отримання копії замовлення)" [(ngModel)]="userEmail">
-                <h2>Інформація про доставку</h2>
+                <h2 class="heading">Інформація про доставку</h2>
                 <div class="d-flex">
                      <div class="w-100">
                         <input type="radio" name="rad1" id="r1" [checked]="deliveryType === 'delivery'" (change)="deliveryType = 'delivery'; startContainer()">
@@ -68,7 +68,7 @@
                             <option value="Івана Франка, 71">Івана Франка, 71</option>
                         </select>
                       </ng-container>
-                      <h2 class="oplata">Параметри оплати</h2>
+                      <h2 class="oplata heading" >Параметри оплати</h2>
                       <input type="radio" id="r3" name="radio" value="Готівка" [(ngModel)]="radio" (change)="startContainer()">
                       <label class="m10" for="r3">Готівка</label>
                       
