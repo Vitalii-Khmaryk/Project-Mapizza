@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="box w-100">
                     <div>
-                    <img src="https://mapizza.com.ua/wp-content/uploads/2022/03/logo-pizza-red.svg" class="footer-logo"  alt="">
+                    <img src="https://mapizza.com.ua/wp-content/uploads/2022/03/logo-pizza-red.svg" class="footer-logo"  alt="...">
                     </div>
                     <div><a class="telephone" href="tel:+380971830618"><b>+380971830618</b></a>
                       <div>нд-чт 09:30 − 21:30</div>
@@ -15,23 +15,23 @@
                     </div>
                     <div class="social">
                         <div class="social-block">
-                            <img src="https://mapizza.com.ua/wp-content/uploads/2021/09/i-facebook.svg" alt="">
+                            <img src="https://mapizza.com.ua/wp-content/uploads/2021/09/i-facebook.svg" alt="...">
                         </div>
                         <div class="social-block">
-                            <img src="https://mapizza.com.ua/wp-content/uploads/2021/09/i-instagram.svg" alt="">
+                            <img src="https://mapizza.com.ua/wp-content/uploads/2021/09/i-instagram.svg" alt="...">
                         </div>
                         <div class="social-block">
-                            <img src="	https://mapizza.com.ua/wp-content/uploads/2021/09/i-you-tube.svg" alt="">
+                            <img src="	https://mapizza.com.ua/wp-content/uploads/2021/09/i-you-tube.svg" alt="...">
                         </div>
                     </div>
                     <div class="download-title">
                         Завантажуйте додаток
                         <ul>
                             <li>
-                                <img src="https://mapizza.com.ua/wp-content/uploads/2022/09/app-store-download.svg" alt="">
+                                <img src="https://mapizza.com.ua/wp-content/uploads/2022/09/app-store-download.svg" alt="...">
                             </li>
                             <li>
-                                <img src="https://mapizza.com.ua/wp-content/uploads/2022/09/google-play-download.svg" alt="">
+                                <img src="https://mapizza.com.ua/wp-content/uploads/2022/09/google-play-download.svg" alt="...">
                             </li>
                         </ul>
                     </div>
@@ -39,18 +39,18 @@
                 <div class="box">
                     <h3>Меню:</h3>
                     <ul class="box-list">
-                        <li class="li">Піца</li>
-                        <li class="li">Салати</li>
-                        <li class="li">Десерти</li>
-                        <li class="li">Напої</li>
+                        <li class="li" [routerLink]="[ '/product/pizza' ]" >Піца</li>
+                        <li class="li" [routerLink]="[ '/product/salads' ]">Салати</li>
+                        <li class="li" [routerLink]="[ '/product/deserts' ]">Десерти</li>
+                        <li class="li" [routerLink]="[ '/product/drinks' ]">Напої</li>
                     </ul>
                 </div>
                 <div class="box">
                     <h3>Про компанію:</h3>
                     <ul class="box-list">
                         <li class="li" [routerLink]="[ '/about' ]">Про нас</li>
-                        <li class="li">Доставка та оплата</li>
-                        <li class="li">Акції</li>
+                        <li class="li" [routerLink]="[ '/delivery' ]">Доставка та оплата</li>
+                        <li class="li" [routerLink]="[ '/discounts' ]">Акції</li>
                         <li class="li" [routerLink]="[ '/contacts' ]">Контакти</li>
                     </ul>
                 </div>

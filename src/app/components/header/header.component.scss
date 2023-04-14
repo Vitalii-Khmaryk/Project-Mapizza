@@ -12,6 +12,9 @@
   .header__wrapper.hidden {
     transform: translateY(-40%);
   }
+  .show {
+    top:8.5%;
+  }
 }
 
 .container {
@@ -445,9 +448,7 @@ $main-color: green;
 }
 
 
-.show {
-  top:8.5%;
-}
+
 
 @media screen and (max-width: 1009px) {
   .container {
@@ -575,6 +576,8 @@ $main-color: green;
   .basket-container {
     width: 99%;
     right: 0;
+    top: 3%;
+    bottom: 0;
   }
 }
 @media screen and (max-width: 445px) {
